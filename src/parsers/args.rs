@@ -1,3 +1,5 @@
+use crate::*;
+
 #[derive(Debug, PartialEq)]
 pub enum FlagState {
     Normal,

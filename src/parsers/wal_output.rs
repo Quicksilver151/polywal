@@ -2,7 +2,7 @@
 use crate::*;
 
 pub fn get_hex_colors() -> Palette{
-    dbg!(home_dir());
+    
     let mut file_path = home_dir().unwrap();
     file_path.push(".cache/wal/colors");
     

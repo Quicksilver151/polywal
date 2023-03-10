@@ -1,3 +1,26 @@
+use std::fmt::Display;
+
+use crate::*;
+
+#[derive(Default, Debug, Serialize, Deserialize)]
+pub enum Godot {#[default] False, Light, Color, Dark}
+
+#[derive(Default, Debug, Serialize, Deserialize)]
+pub struct Config{
+    pub discord : bool,
+    pub tabliss : bool,
+    pub polybar : bool,
+    pub godot   : Godot,
+}
+impl Config{
+    pub fn new() -> Config{
+        Config { discord: false, tabliss: false, polybar: false, godot: Godot::False }
+    }
+
+}
+
+
+
 #[derive(Debug)]
 pub struct Color(pub String);
 
@@ -5,9 +28,13 @@ impl Color{
     pub fn new() -> Color{
         Color("#000000".to_string())
     }
-    pub fn to_string(self) -> String{
-        let Color(output) = self;
-        output
+}
+
+impl Display for Color{
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) ->std::result::Result<(), std::fmt::Error> {
+        let Color(output) = &self;
+        write!(f, "{output}")?;
+        Ok(())
     }
 }
 
@@ -82,7 +109,7 @@ impl Palette{
             color15 : Color(vec[15].to_string()),
         }
     }
-    pub fn to_vec(self) -> Vec<String>{
+    pub fn to_vec(&self) -> Vec<String>{
         vec![
             self.color0 .to_string(),
             self.color1 .to_string(),
@@ -104,5 +131,12 @@ impl Palette{
     }
 }
 
+impl Display for Palette{
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) ->std::result::Result<(), std::fmt::Error> {
+        let output = &self.to_vec();
+        output.iter().try_for_each(|x| write!(f,"{x}\n"))?;
+        Ok(())
+    }
+}
 
 
