@@ -7,13 +7,17 @@ pub use std::fs;
 pub use home::*;
 
 // files
+mod structs;
 mod parsers;
-use crate::parsers::*;
+mod apps;
+
+// use files
+use structs::*;
+use parsers::*;
+use apps::*;
 
 fn main() {
-    let new_palette:Palette = get_hex_colors();
-    dbg!(new_palette.color1);
+    let wal_colors:Palette = get_hex_colors();
+    dbg!(wal_colors.to_vec());
     
-    
-    println!("Hello, world! in {}",new_palette.color0.to_string());
 }

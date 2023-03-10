@@ -6,9 +6,6 @@ pub fn get_hex_colors() -> Palette{
     let mut file_path = home_dir().unwrap();
     file_path.push(".cache/wal/colors");
     
-    // let file_path: PathBuf = PathBuf::from("~/.cache/wal/colors");
-    println!("In file {:?}", file_path.file_name().unwrap());
-    
     let contents = fs::read_to_string(file_path)
         .expect("Should have been able to read the file");
     

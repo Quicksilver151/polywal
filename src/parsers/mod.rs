@@ -1,5 +1,6 @@
-pub mod structs;
-pub mod read_wal_output;
-pub use structs::*;
-pub use read_wal_output::*;
+pub mod flag;
+pub mod wal_output;
+
+pub use flag::*;
+pub use wal_output::*;
 
