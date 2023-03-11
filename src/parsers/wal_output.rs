@@ -1,4 +1,3 @@
-
 use crate::*;
 
 pub fn get_hex_colors() -> Palette{
