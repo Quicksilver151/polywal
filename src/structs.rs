@@ -133,10 +133,14 @@ impl Palette{
 
 impl Display for Palette{
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) ->std::result::Result<(), std::fmt::Error> {
-        let output = &self.to_vec();
-        output.iter().try_for_each(|x| writeln!(f,"{x}"))?;
+        let mut output = self.to_vec();
+        write!(f,"{}",output[0])?;
+        output.reverse();
+        output.pop();
+        output.reverse();
+        output.iter().try_for_each(|x| write!(f,"\n{x}"))?;
         Ok(())
     }
 }
 
-
+pub enum FileError {FileNotFound, WritingFailed, ReadingFailed}
