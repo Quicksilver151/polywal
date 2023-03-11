@@ -16,7 +16,6 @@ impl Config{
     pub fn new() -> Config{
         Config { discord: false, tabliss: false, polybar: false, godot: Godot::False }
     }
-
 }
 
 
@@ -91,6 +90,7 @@ impl Palette{
     
     pub fn new_from_vec(vec: Vec<&str>) -> Palette{
         Palette{
+            
             color0  : Color(vec[0 ].to_string()),
             color1  : Color(vec[1 ].to_string()),
             color2  : Color(vec[2 ].to_string()),

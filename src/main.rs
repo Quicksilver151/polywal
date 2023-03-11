@@ -6,6 +6,8 @@ pub use std::fs;
 // crates 
 pub use home::*;
 pub use serde::{Serialize,Deserialize};
+pub use owo_colors::*;
+
 // files
 mod structs;
 mod parsers;
@@ -24,8 +26,9 @@ fn main() {
     let cfg_result: Result<Config, confy::ConfyError> = confy::load("polywal", None);
     let cfg = match cfg_result {
         Ok(cfg_result) => cfg_result,
-        Err(_cfg_result) => {
+        Err(cfg_result) => {
             println!("Warning: config was broken so it has been autofixed");
+            dbg!(cfg_result);
             Config::new()
         }
     };
@@ -39,13 +42,18 @@ fn main() {
         Err(_flag) => return,
     };
     
-    // main logic
-    
+    // help break
     if flag.help {
         // breakout for help
         println!("{}", HELP_TEXT);
         return;
     }
+    
+    
+    // main logic
+    // ==========
+    
+    
     let wal_colors:Palette = get_hex_colors();
     println!("{}",wal_colors);
     
