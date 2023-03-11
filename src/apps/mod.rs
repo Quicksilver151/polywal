@@ -22,3 +22,11 @@ pub fn write_palette_to(app: App, palette: &Palette) -> Result<(),FileError>{
     }
     
 }
+
+pub fn get_relative_path(path: &str) -> std::path::PathBuf{
+    let mut file_path = home_dir().unwrap();
+    file_path.push(path);
+    file_path
+}
+
+
