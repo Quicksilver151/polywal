@@ -12,13 +12,13 @@ pub use tabliss::*;
 
 pub enum App {BetterDiscord, Godot, Polybar, Tabliss}
 
-pub fn write_palette_to(app: App, palette: &Palette) -> Result<(),()>{
+pub fn write_palette_to(app: App, palette: &Palette) -> Result<(),FileError>{
     
     match app{
         App::BetterDiscord  => todo!(),
         App::Godot          => todo!(),
-        App::Polybar        => Ok(polybar::set_theme()),
-        App::Tabliss        => Ok(tabliss::set_theme()),
+        App::Polybar        => todo!(),
+        App::Tabliss        => tabliss::set_theme(),
     }
     
 }
