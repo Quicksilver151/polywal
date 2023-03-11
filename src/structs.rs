@@ -134,7 +134,7 @@ impl Palette{
 impl Display for Palette{
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) ->std::result::Result<(), std::fmt::Error> {
         let output = &self.to_vec();
-        output.iter().try_for_each(|x| write!(f,"{x}\n"))?;
+        output.iter().try_for_each(|x| writeln!(f,"{x}"))?;
         Ok(())
     }
 }
