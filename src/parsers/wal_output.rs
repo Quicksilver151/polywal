@@ -1,22 +1,19 @@
 use crate::*;
 
-pub fn get_hex_colors() -> Palette{
-    
+pub fn get_hex_colors() -> Palette {
     let mut file_path = home_dir().unwrap();
     file_path.push(".cache/wal/colors");
     
-    let contents = fs::read_to_string(file_path)
-        .expect("Should have been able to read the file");
+    let contents = fs::read_to_string(file_path).expect("Should have been able to read the file");
     
-    let contents : Vec<&str> = contents.split('\n').collect();
+    let contents: Vec<&str> = contents.split('\n').collect();
     
     Palette::new_from_vec(contents)
-    
 }
 
-pub fn get_256_colors(){
+pub fn get_256_colors() {
     todo!()
 }
-pub fn get_wallpaper_path() -> String{
+pub fn get_wallpaper_path() -> String {
     todo!();
 }
