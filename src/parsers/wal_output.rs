@@ -12,7 +12,7 @@ pub fn get_hex_colors() -> Palette {
 }
 
 pub fn get_wallaper_location() -> String{
-
+    todo!();
 }
 
 pub fn get_256_colors() {
