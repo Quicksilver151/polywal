@@ -7,10 +7,9 @@ pub fn set_theme() -> Result<(), FileError>{
     //TODO: auto detect the directory or we're going nowhere
     
     let wallpaper = get_wallaper_path();
-    dbg!(&wallpaper);
+    
     fs::remove_file(&path).unwrap();
-    dbg!(&path);
-    std::os::unix::fs::symlink(&wallpaper, path).unwrap();
+    std::os::unix::fs::symlink(wallpaper, path).unwrap();
     
     Ok(())
 }

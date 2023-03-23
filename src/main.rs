@@ -53,5 +53,5 @@ fn main() {
     
     let wal_colors: Palette = get_hex_colors();
     write_palette_to(App::Tabliss, &wal_colors).unwrap_or(());
-    println!("{}", &wal_colors);
+    // println!("{}", &wal_colors);
 }
