@@ -8,7 +8,11 @@ pub fn get_hex_colors() -> Palette {
     
     let contents: Vec<&str> = contents.split('\n').collect();
     
-    Palette::new_from_vec(contents)
+    Palette::from_vec(contents)
+}
+
+pub fn get_wallaper_location() -> String{
+
 }
 
 pub fn get_256_colors() {

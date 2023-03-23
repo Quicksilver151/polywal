@@ -88,7 +88,7 @@ impl Palette{
         }
     }
     
-    pub fn new_from_vec(vec: Vec<&str>) -> Palette{
+    pub fn from_vec(vec: Vec<&str>) -> Palette{
         Palette{
             
             color0  : Color(vec[0 ].to_string()),
